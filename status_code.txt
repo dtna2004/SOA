@@ -1,0 +1,50 @@
+1xx – Informational (Thông tin)
+
+100 Continue: Server đã nhận được header, client có thể tiếp tục gửi body request.
+
+101 Switching Protocols: Yêu cầu đổi giao thức (ví dụ từ HTTP sang WebSocket).
+
+2xx – Success (Thành công)
+
+Không hẳn là lỗi, nhưng quan trọng:
+
+200 OK: Thành công, dữ liệu trả về như mong đợi.
+
+201 Created: Đã tạo tài nguyên mới (thường trong POST).
+
+3xx – Redirection (Chuyển hướng)
+
+301 Moved Permanently: Tài nguyên đã chuyển vĩnh viễn.
+
+302 Found: Chuyển tạm thời.
+
+304 Not Modified: Dữ liệu chưa thay đổi, client có thể dùng cache.
+
+4xx – Client Error (Lỗi từ phía client)
+
+Đây mới là mấy lỗi thường gặp:
+
+400 Bad Request: Request sai cú pháp hoặc dữ liệu không hợp lệ.
+
+401 Unauthorized: Thiếu/ sai thông tin xác thực (chưa đăng nhập hoặc token sai).
+
+403 Forbidden: Có xác thực nhưng không có quyền truy cập.
+
+404 Not Found: Không tìm thấy tài nguyên.
+
+405 Method Not Allowed: Dùng sai phương thức (ví dụ dùng GET thay vì POST).
+
+408 Request Timeout: Client gửi request quá chậm, server hủy bỏ.
+
+429 Too Many Requests: Bị giới hạn (rate limit).
+
+5xx – Server Error (Lỗi phía server)
+
+Lúc này thì lỗi do server :
+500 Internal Server Error: Lỗi chung, server không xử lý được.
+
+502 Bad Gateway: Gateway hoặc proxy nhận được phản hồi không hợp lệ từ upstream server.
+
+503 Service Unavailable: Server quá tải hoặc đang bảo trì.
+
+504 Gateway Timeout: Server upstream không phản hồi kịp.

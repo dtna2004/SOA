@@ -10,7 +10,7 @@ fetch('https://jsonplaceholder.typicode.com/users/1')
   .then(user => {
     console.log("Yêu cầu thành công! Dữ liệu người dùng nhận được:");
     console.log(user[1]);
-    console.log(`Tên người dùng là: ${user.name}, Email là: ${user.email}`);
+    console.log(`GET: Tên người dùng là: ${user.name}, Email là: ${user.email}`);
   })
   .catch(error => {
     console.error("Đã có sự cố với yêu cầu fetch:", error);
@@ -34,7 +34,7 @@ fetch('https://jsonplaceholder.typicode.com/users/',{
         return response.json();
     })
     .then(data => {
-        console.log('Dữ liệu người dùng nhận được:', data);
+        console.log('POST: Dữ liệu người dùng nhận được:', data);
     })
     .catch(error => {
         console.error('Đã có sự cố với yêu cầu fetch:', error);
@@ -48,7 +48,7 @@ fetch('https://jsonplaceholder.typicode.com/users/1',{
     },
     body: JSON.stringify({
         name: 'Nguyen Van A',
-        email: 'nguyenvana@example.com'
+        email: 'nguyenvana1@example.com'
     })
 })
     .then(response => {
@@ -58,7 +58,7 @@ fetch('https://jsonplaceholder.typicode.com/users/1',{
         return response.json();
     })
     .then(data => {
-        console.log('Dữ liệu người dùng nhận được:', data);
+        console.log('PUT: Dữ liệu người dùng nhận được:', data);
     })
     .catch(error => {
         console.error('Đã có sự cố với yêu cầu fetch:', error);
@@ -74,7 +74,7 @@ fetch('https://jsonplaceholder.typicode.com/users/1',{
         }
     })
     .then(data => {
-        console.log('Dữ liệu người dùng nhận được:', data);
+        console.log('DELETE: Dữ liệu người dùng nhận được:', data);
     })
     .catch(error => {
         console.error('Đã có sự cố với yêu cầu fetch:', error);
@@ -90,4 +90,16 @@ fetch('https://jsonplaceholder.typicode.com/users/1',{
         name: 'Nguyen Van A',
         email: 'nguyenvana@example.com'
     })
-})
+})     
+    .then(response => {
+        if (!response.ok) {
+            throw new Error(`Lỗi HTTP! Trạng thái: ${response.status}`);
+        }
+        return response.json();
+    })
+    .then(data => {
+        console.log('PATCH: Dữ liệu người dùng nhận được:', data);
+    })
+    .catch(error => {
+        console.error('Đã có sự cố với yêu cầu fetch:', error);
+    });
